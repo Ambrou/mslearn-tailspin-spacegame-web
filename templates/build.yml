@@ -10,6 +10,14 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
+  displayName: 'Run unit tests - ${{ parameters.buildConfiguration }}'
+  inputs:
+    command: 'test'
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: '--no-build --configuration ${{ parameters.buildConfiguration }}'
+    
+- task: DotNetCoreCLI@2
   displayName: 'Publish the project - ${{ parameters.buildConfiguration }}'
   inputs:
     command: 'publish'

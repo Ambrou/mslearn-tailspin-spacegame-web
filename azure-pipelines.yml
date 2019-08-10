@@ -41,13 +41,11 @@ steps:
     SonarCloud: 'Token1'
     organization: '$(organization)'
     projectKey: '$(projectKey)'
-    projectName: '
+    projectName: '$(projectName)'
     projectVersion: '$(Build.BuildNumber)'
     extraProperties: |
      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
      sonar.exclusions=**/wwwroot/lib/**/*
-
-
 
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
